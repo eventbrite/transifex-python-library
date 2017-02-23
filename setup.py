@@ -15,6 +15,7 @@ except ImportError:
 
 setup(
     name="txlib",
+    version="0.1+eventbrite",
     author="Indifex Ltd.",
     author_email="info@indifex.com",
     description="A python library for Transifex",
