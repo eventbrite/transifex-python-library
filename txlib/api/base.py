@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import json
+
 from txlib.utils import _logger
-from txlib.utils.imports import json
 from txlib.registry import registry
 
 

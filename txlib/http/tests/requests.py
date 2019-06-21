@@ -3,8 +3,9 @@
 Tests for requests.
 """
 
-from txlib.utils import json
-from txlib.utils.imports import unittest
+import json
+import unittest
+
 from txlib.http.base import BaseRequest
 from txlib.http.http_requests import HttpRequest
 from txlib.http.auth import AnonymousAuth, BasicAuth
