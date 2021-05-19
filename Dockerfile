@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM ubuntu:18.04
 MAINTAINER Konstantinos Koukopoulos <kouk@transifex.com>
 
 ENV PYENV_ROOT $HOME/.pyenv
