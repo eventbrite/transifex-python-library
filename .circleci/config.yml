@@ -104,6 +104,11 @@ jobs:
             sed -i '/envlist/s/py36/py35/' tox.ini
             sed -i 's/3.6.1/3.5.9/g' Dockerfile
       - run:
+          name: Copy code
+          command: |
+            echo 'WORKDIR /srv' >> Dockerfile
+            echo 'COPY . .' >> Dockerfile
+      - run:
           name: Build image
           command: |
             echo "export STEP=\"Build images\"" >> $BASH_ENV
@@ -112,7 +117,7 @@ jobs:
           name: Run tests
           command: |
             echo "export STEP=\"Run tests\"" >> $BASH_ENV
-            docker run --mount type=bind,source="$(pwd)",target=/srv $LIBRARY_NAME tox -c /srv/tox.ini
+            docker run $LIBRARY_NAME tox -c /srv/tox.ini
       - run:
           name: Retrieve test results and store
           command: |
