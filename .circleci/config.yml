@@ -44,7 +44,7 @@ jobs:
           <<: *docker-ecr-login
       - add_ssh_keys:
           fingerprints:
-            - "3a:de:33:cd:83:44:ee:f1:85:d1:16:68:47:1f:bd:4c"
+            - "72:ab:d6:72:01:8b:8a:20:70:3e:85:56:1c:2e:36:85"
       - run:
           name: Git Config
           command: /srv/ci_cd/git_config/main.sh
@@ -79,7 +79,7 @@ jobs:
                 name: Check semantic version
                 command: |
                   /srv/ci_cd/check_semantic_version/main.sh \
-                  --github-token_${GITHUB_TOKEN} \
+                  --github-token ${GITHUB_TOKEN} \
                   --pull-request-url ${CIRCLE_PULL_REQUEST}
             - run:
                 name: Check cherry pick branch
