@@ -129,19 +129,19 @@ jobs:
       - store_artifacts:
           path: /tmp/test-artifacts
           destination: Test Result
-      # - run:
-      #     name: Slack - Set PR URL
-      #     command: |
-      #       [[ ${CIRCLE_PULL_REQUEST} != "" ]] && echo "export PR_LNK=\"Github pull request: ${CIRCLE_PULL_REQUEST}\n\"" >> $BASH_ENV || true
-      #     when: always
-      # - slack/notify:
-      #     channel: "common-libraries-circleci"
-      #     custom: '{"attachments":[{"color": "danger","mrkdwn_in": ["text"],"text": "Failed to build: *${CIRCLE_PROJECT_REPONAME}*\nUser: *${CIRCLE_USERNAME}*\n${PR_LNK}CircleCI build url: ${CIRCLE_BUILD_URL}\nFailed on Step: *${STEP}*"}]}'
-      #     event: fail
-      # - slack/notify:
-      #     channel: "common-libraries-circleci"
-      #     custom: '{"attachments": [{"color": "good","mrkdwn_in": ["text"],"text": "Success to build: *${CIRCLE_PROJECT_REPONAME}*\nUser: *${CIRCLE_USERNAME}*\n${PR_LNK}CircleCI build url: ${CIRCLE_BUILD_URL}"}]}'
-      #     event: pass
+      - run:
+          name: Slack - Set PR URL
+          command: |
+            [[ ${CIRCLE_PULL_REQUEST} != "" ]] && echo "export PR_LNK=\"Github pull request: ${CIRCLE_PULL_REQUEST}\n\"" >> $BASH_ENV || true
+          when: always
+      - slack/notify:
+          channel: "common-libraries-circleci"
+          custom: '{"attachments":[{"color": "danger","mrkdwn_in": ["text"],"text": "Failed to build: *${CIRCLE_PROJECT_REPONAME}*\nUser: *${CIRCLE_USERNAME}*\n${PR_LNK}CircleCI build url: ${CIRCLE_BUILD_URL}\nFailed on Step: *${STEP}*"}]}'
+          event: fail
+      - slack/notify:
+          channel: "common-libraries-circleci"
+          custom: '{"attachments": [{"color": "good","mrkdwn_in": ["text"],"text": "Success to build: *${CIRCLE_PROJECT_REPONAME}*\nUser: *${CIRCLE_USERNAME}*\n${PR_LNK}CircleCI build url: ${CIRCLE_BUILD_URL}"}]}'
+          event: pass
 
 
 workflows:
