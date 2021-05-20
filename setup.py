@@ -1,9 +1,17 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
+import codecs
+import os
 
+with codecs.open(
+    os.path.join(os.path.dirname(__file__), 'txlib', 'version.txt'),
+    mode='rb',
+    encoding='utf8',
+) as _version_file:
+    __version__ = _version_file.read().strip()
 
 setup(
-    version="0.2.0+eventbrite",
+    version=__version__,
 
     name="txlib",
     author="Indifex Ltd.",
