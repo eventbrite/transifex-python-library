@@ -4,7 +4,6 @@ from setuptools import setup, find_packages
 
 setup(
     version="0.2.0+eventbrite",
-    cmdclass=versioneer.get_cmdclass(),
 
     name="txlib",
     author="Indifex Ltd.",
