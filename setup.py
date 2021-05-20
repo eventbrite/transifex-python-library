@@ -1,12 +1,9 @@
 #!/usr/bin/env python
-import versioneer
-
 from setuptools import setup, find_packages
 
 
 setup(
-    version=versioneer.get_version(),
-    cmdclass=versioneer.get_cmdclass(),
+    version="0.2.0+eventbrite",
 
     name="txlib",
     author="Indifex Ltd.",

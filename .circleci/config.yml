@@ -77,9 +77,9 @@ jobs:
           steps:
             - run:
                 name: Check semantic version
-                command: |
-                  /srv/ci_cd/check_semantic_version/main.sh \
-                  --github-token ${GITHUB_TOKEN} \
+                command: >
+                  /srv/ci_cd/check_semantic_version/main.sh
+                  --github-token ${GITHUB_TOKEN}
                   --pull-request-url ${CIRCLE_PULL_REQUEST}
             - run:
                 name: Check cherry pick branch
